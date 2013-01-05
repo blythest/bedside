@@ -3,10 +3,15 @@ class PagesController < ApplicationController
   respond_to :html, :js
   
   def show
-    @page = current_user.pages.find(params[:id])
-    @schedule = @page.get_schedule
+    # Using find() with :first will return nil instead of raising RecordNotFound exception.
+    @page = current_user.pages.find(:first, :conditions => {:id => params[:id]})
 
-    respond_with(@page)
+    if @page
+      @schedule = @page.get_schedule
+      respond_with(@page)
+    else
+      render :action => 'unauthorized'
+    end
   end
 
   def new
@@ -26,12 +31,8 @@ class PagesController < ApplicationController
 
   def update
     @page = current_user.pages.find(params[:id])
-
     @page.update_attributes(params[:page])
-    
     respond_with(@page)
   end
-
-  
 
 end

@@ -3,28 +3,13 @@
   Visitor Schedule
 %h4.heading.lower-heading
   Block Unavailable Times
-  
-    .inner-container
-  -@schedule.each do |k,day|
-    %table.table.table-striped.table-condensed
-      %thead
-        %tr
-          %th
-            =day[:date].strftime('%A, %b %e')
-            =link_to 'Add yourself', "/pages/#{@page.id}/visits/new?day=#{k}", {:remote => true, :class => "btn btn-mini pull-right", :id => 'add_page_wish'}
-      -if !day[:visits].blank?
-        %tbody
-          -day[:visits].each do |v|
-            %tr
-              %td
-                #{v.start_hour} - #{v.user.name}
-                - if v.user_id == current_user.id or @page.can_edit?(current_user)
-                  %span.pull-right
-                    =link_to 'cancel', "/pages/#{@page.id}/visits/#{v.id}", {:remote => true, :method => "delete", :class => "pull-right", :confirm => "Are you sure that you want to cancel this visit?"}
-
+  / %span.pull-left
+  /   =link_to 'Edit', "#", {:remote => true, :class => "btn btn-mini pull-right"}
 
 .inner-container
   -@schedule.each do |k,day|
+  %span.pull-left
+    =link_to 'Edit', "#", {:remote => true, :class => "btn btn-mini pull-right"}
     %table.table.table-striped.table-condensed
       %thead
         %tr

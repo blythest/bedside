@@ -3,15 +3,15 @@
   Visitor Schedule
 %h4.heading.lower-heading
   Block Unavailable Times
-  / %span.pull-left
-   
+  %span.pull-left
+    -@schedule {|k,day|}
+    =link_to 'Edit', "#", {:remote => true, :class => "btn btn-mini pull-right"}
 
 .inner-container
   -@schedule.each do |k,day|
     %table.table.table-striped.table-condensed
       %thead
         %tr
-         =link_to 'Edit', "#", {:remote => true, :class => "btn btn-mini pull-right"}
           %th
             =day[:date].strftime('%A, %b %e')
             =link_to 'Add yourself', "/pages/#{@page.id}/visits/new?day=#{k}", {:remote => true, :class => "btn btn-mini pull-right", :id => 'add_page_wish'}

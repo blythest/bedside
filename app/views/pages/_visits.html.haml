@@ -3,6 +3,8 @@
   Visitor Schedule
 %h4.heading.lower-heading
   Block Unavailable Times
+  %span.pull-left
+    =link_to 'Edit', "#", {:class => "btn btn-mini pull-right"}
 .inner-container
   -@schedule.each do |k,day|
     %table.table.table-striped.table-condensed

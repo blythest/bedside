@@ -1,7 +1,7 @@
 %i.icon.icon-calendar.pull-left.icon-1
 %h4.heading.lower-heading
   Visitor Schedule
-  =link_to 'Add yourself', "/pages/#{@page.id}/visits/new?day=#{k}", {:remote => true, :class => "btn btn-mini pull-right", :id => 'add_page_wish'}
+  
 .inner-container
   -@schedule.each do |k,day|
     %table.table.table-striped.table-condensed

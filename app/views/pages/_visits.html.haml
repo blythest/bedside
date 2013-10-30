@@ -5,7 +5,6 @@
   Block Unavailable Times
   %span.pull-left
     =link_to 'Edit', "#", {:remote => true, :class => "btn btn-mini pull-right"}
-
 .inner-container
   -@schedule.each do |k,day|
     %table.table.table-striped.table-condensed
@@ -14,8 +13,6 @@
           %th
             =day[:date].strftime('%A, %b %e')
             =link_to 'Add yourself', "/pages/#{@page.id}/visits/new?day=#{k}", {:remote => true, :class => "btn btn-mini pull-right", :id => 'add_page_wish'}
-
-            /link here is pages/ instance variable page with method id
       -if !day[:visits].blank?
         %tbody
           -day[:visits].each do |v|

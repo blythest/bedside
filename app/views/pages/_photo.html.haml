@@ -9,4 +9,4 @@
         -if @page.avatar_url
           =f.filepicker_field :avatar_url, button_text: "Change photo", button_class:"btn", onchange: 'window.Bedside.updatePhoto(event);' 
         -else
-          =f.filepicker_field :avatar_url, button_text: "Upload a photo", button_class:"btn", onchange: 'window.Bedside.updatePhoto(event);'
+          =f.filepicker_field :avatar_url, button_text: "Add a photo", button_class:"btn", onchange: 'window.Bedside.updatePhoto(event);'

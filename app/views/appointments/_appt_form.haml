@@ -1,5 +1,5 @@
 .modal.fade.in
-  = simple_form_for([@page,@visit], :remote => true, :html => {:class => 'form-vertical' }) do |f|
+  = simple_form_for([@page,@appointment], :remote => true, :html => {:class => 'form-vertical' }) do |f|
     .modal-header
       %button.close{'type'=>'button','data-dismiss'=>"modal", 'aria-hidden'=>'true'}
         =raw '&times;'

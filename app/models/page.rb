@@ -5,6 +5,7 @@ class Page < ActiveRecord::Base
   has_many :users, :through => :page_participations, :autosave => true
   has_many :posts
   has_many :visits
+  has_many :appointments
   has_many :wishes
 
   acts_as_commentable

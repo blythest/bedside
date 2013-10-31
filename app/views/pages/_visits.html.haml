@@ -1,6 +1,10 @@
 %i.icon.icon-calendar.pull-left.icon-1
 %h4.heading.lower-heading
-  Visitor Schedule !
+  Visitor Schedule
+%h4.heading.lower-heading
+  Block Unavailable Times
+  %span.pull-left
+    =link_to 'Edit', "#", {:class => "btn btn-mini pull-left"}
 .inner-container
   -@schedule.each do |k,day|
     %table.table.table-striped.table-condensed
@@ -18,4 +22,3 @@
                 - if v.user_id == current_user.id or @page.can_edit?(current_user)
                   %span.pull-right
                     =link_to 'cancel', "/pages/#{@page.id}/visits/#{v.id}", {:remote => true, :method => "delete", :class => "pull-right", :confirm => "Are you sure that you want to cancel this visit?"}
-

@@ -1,0 +1,11 @@
+#appointments{
+  table{
+    margin-bottom:10px;
+    border-bottom:1px solid #ccc;
+  }
+  .inner-container{
+    max-height:250px;
+    overflow-y:auto;
+    margin-bottom:20px;  
+  }
+}

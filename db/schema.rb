@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121212054156) do
+ActiveRecord::Schema.define(:version => 2012120621125923) do
+
+  create_table "appointments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "page_id"
+    t.datetime "start_time"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -46,7 +54,6 @@ ActiveRecord::Schema.define(:version => 20121212054156) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "visiting_hours"
-    t.string   "appointments"
     t.string   "patient_name"
     t.string   "avatar_url"
   end
@@ -105,15 +112,6 @@ ActiveRecord::Schema.define(:version => 20121212054156) do
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
 
   create_table "visits", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "page_id"
-    t.datetime "start_time"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-
-  create_table "appointments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "page_id"
     t.datetime "start_time"

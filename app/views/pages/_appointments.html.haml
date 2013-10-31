@@ -10,7 +10,7 @@
         %tr
           %th
             =day[:date].strftime('%A, %b %e')
-            =link_to 'Add yourself', "/pages/#{@page.id}/visits/new?day=#{k}", {:remote => true, :class => "btn btn-mini pull-right", :id => 'add_page_wish'}
+            =link_to 'Edit', "/pages/#{@page.id}/visits/new?day=#{k}", {:remote => true, :class => "btn btn-mini pull-right", :id => 'add_page_wish'}
       -if !day[:visits].blank?
         %tbody
           -day[:visits].each do |v|

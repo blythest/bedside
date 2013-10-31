@@ -25,9 +25,9 @@ class Page < ActiveRecord::Base
     days
   end
 
-  def next_weeks
+  def next_week
     days = {}
-    (0..8).each do |offset|
+    (0..6).each do |offset|
       d = Time.now + offset.days
       daystring = d.strftime('%Y%m%d')
       days[daystring] = {:date => d, :visits => []}
@@ -49,8 +49,8 @@ class Page < ActiveRecord::Base
 
   def get_shorter_schedule
     today = 
-    visits = self.visits.where('start_time < ? AND start_time > ?', Time.now + 7.days, Time.now.beginning_of_day)
-    days = self.next_two_weeks
+    visits = self.visits.where('start_time < ? AND start_time > ?', Time.now + 6.days, Time.now.beginning_of_day)
+    days = self.next_week
 
     visits.each do |v|
       daystring = v.start_time.strftime('%Y%m%d')

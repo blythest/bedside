@@ -26,7 +26,7 @@ class VisitsController < ApplicationController
     @visit.start_time = "#{day} #{hour}".to_datetime
     @visit.user_id = current_user.id
     if @visit.save
-      @schedule = @page.get_schedule
+      @schedule = @page.get_shorter_schedule
       respond_with([@page,@visit])
     else
       respond_with(@visit.errors)
@@ -39,7 +39,7 @@ class VisitsController < ApplicationController
 
     @visit.delete if current_user.id == @visit.user_id or @page.can_edit?(current_user)
 
-    @schedule = @page.get_schedule
+    @schedule = @page.get_shorter_schedule
   end
 
   def update

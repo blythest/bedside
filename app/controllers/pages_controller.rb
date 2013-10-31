@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @page = current_user.pages.find(:first, :conditions => {:id => params[:id]})
 
     if @page
-      @schedule = @page.get_schedule
+      @schedule = @page.get_shorter_schedule
       respond_with(@page)
     else
       render :action => 'unauthorized'

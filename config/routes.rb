@@ -11,6 +11,6 @@ Bedside::Application.routes.draw do
 
   resources :users
   resources :pages do
-    resources :wishes, :posts, :page_participations, :visits, :comments
+    resources :wishes, :posts, :page_participations, :visits, :appointments, :comments
   end
 end

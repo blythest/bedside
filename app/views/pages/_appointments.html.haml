@@ -1,0 +1,23 @@
+- if @page.can_edit?(current_user)
+  %button.btn.btn-mini.pull-right{"data-attribute" => "overview", "data-type" => "edit-button"} Edit
+%h4.heading.heading-1
+  #{@page.patient_name}'s Schedule
+  %br/
+.overview-container
+  / -if !@page.overview.blank?
+  /   %p
+  /     #{simple_format(@page.overview, class: "info-text")}
+  / -elsif @page.can_edit?(current_user)
+  /   %p
+  /     Add some general info about the lady's condition.
+  /   %p
+  /     You'll be able to post updates below as the situation changes.
+
+/ .overview-editable-container.hidden
+/   = form_for @page, remote: true, html: {id: "overview-edit-form"} do |f|
+/     %p
+/       = f.text_area :overview, placeholder: "Add some general info about Susan's condition."
+/       %br
+/       %button.btn{"data-attribute" => "overview", "data-type" => "cancel-button"}
+/         Cancel
+/       = f.submit"Save", class: "btn btn-primary", "data-attribute" => "overview", "data-type" => "save-button"

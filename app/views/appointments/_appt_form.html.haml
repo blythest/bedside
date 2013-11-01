@@ -3,7 +3,7 @@
     .modal-header
       %button.close{'type'=>'button','data-dismiss'=>"modal", 'aria-hidden'=>'true'}
         =raw '&times;'
-      %h3 When will you be visiting?
+      %h3 What is your schedule today?
 
     .modal-body
       = f.error_notification
@@ -12,4 +12,4 @@
       
     .modal-footer
       %a.btn{:href=>"#",'data-dismiss'=>"modal"} Close
-      = f.button :submit, 'Add your visit', :class => 'btn-primary'
+      = f.button :submit, 'Add your appointment', :class => 'btn-primary'

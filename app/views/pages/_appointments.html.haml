@@ -10,7 +10,7 @@
         %tr
           %th
             =day[:date].strftime('%A, %b %e')
-            =link_to 'Edit', "/pages/#{@page.id}/visits/new?day=#{k}", {:remote => true, :class => "btn btn-mini pull-right", :id => 'add_page_wish'}
+            =link_to 'Edit', "/pages/#{@page.id}/appointments/new?day=#{k}", {:remote => true, :class => "btn btn-mini pull-right", :id => 'add_page_wish'}
       -if !day[:appointments].blank?
         %tbody
           -day[:appointments].each do |v|
@@ -19,4 +19,4 @@
                 #{v.start_hour} - #{v.user.name}
                 - if v.user_id == current_user.id or @page.can_edit?(current_user)
                   %span.pull-right
-                    =link_to 'cancel', "/pages/#{@page.id}/visits/#{v.id}", {:remote => true, :method => "delete", :class => "pull-right", :confirm => "Are you sure that you want to cancel this appointment?"}
+                    =link_to 'cancel', "/pages/#{@page.id}/appointments/#{v.id}", {:remote => true, :method => "delete", :class => "pull-right", :confirm => "Are you sure that you want to cancel this appointment?"}

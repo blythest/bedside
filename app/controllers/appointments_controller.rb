@@ -4,49 +4,49 @@ class AppointmentsController < ApplicationController
   respond_to :html, :js
   
   def show
-    @visit = @page.visits.find(params[:id])
-    respond_with(@visit)
+    @appointment = @page.appointments.find(params[:id])
+    respond_with(@appointment)
   end
 
   def edit
-    @visit = @page.visits.find(params[:id])
-    respond_with(@visit)
+    @appointment = @page.appointments.find(params[:id])
+    respond_with(@appointment)
   end
 
   def new
     @hours_dropdown = hours_dropdown
-    respond_with(@visit = @page.visits.new)   
+    respond_with(@appointment = @page.appointments.new)   
   end 
 
   def create
-    @visit = @page.visits.new
-    day = params[:visit][:start_day]
-    hour = params[:visit][:start_hour]
+    @appointment = @page.appointments.new
+    day = params[:appointment][:start_day]
+    hour = params[:appointment][:start_hour]
 
-    @visit.start_time = "#{day} #{hour}".to_datetime
-    @visit.user_id = current_user.id
-    if @visit.save
-      @schedule = @page.get_shorter_schedule
-      respond_with([@page,@visit])
+    @appointment.start_time = "#{day} #{hour}".to_datetime
+    @appointment.user_id = current_user.id
+    if @appointment.save
+      @schedule = @page.get_shorter_appts
+      respond_with([@page,@appointment])
     else
-      respond_with(@visit.errors)
+      respond_with(@appointment.errors)
     end
   end
 
   def destroy
     
-    @visit = @page.visits.find(params[:id])
+    @appointment = @page.appointment.find(params[:id])
 
-    @visit.delete if current_user.id == @visit.user_id or @page.can_edit?(current_user)
+    @appointment.delete if current_user.id == @appointment.user_id or @page.can_edit?(current_user)
 
-    @schedule = @page.get_shorter_schedule
+    @schedule = @page.get_shorter_appts
   end
 
   def update
-    @visit = @page.visits.find(params[:id])
-    @visit.update_attributes(params[:visit])
+    @appointment = @page.appointments.find(params[:id])
+    @appointment.update_attributes(params[:visit])
     
-    respond_with([@page,@visit])
+    respond_with([@page,@appointment])
   end
 
   def hours_dropdown

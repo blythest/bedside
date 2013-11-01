@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :pages, :through => :page_participations, :autosave => true
   has_many :posts
   has_many :visits
+  has_many :appointments
   has_many :wishes, :foreign_key => 'claimed_by'
   has_many :comments
 

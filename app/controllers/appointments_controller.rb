@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
     @appointment.start_time = "#{day} #{hour}".to_datetime
     @appointment.user_id = current_user.id
     if @appointment.save
-      @schedule = @page.get_shorter_schedule
+      @schedule = @page.get_shorter_appts
       respond_with([@page,@appointment])
     else
       respond_with(@appointment.errors)

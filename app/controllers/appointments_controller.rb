@@ -39,7 +39,7 @@ class AppointmentsController < ApplicationController
 
     @appointment.delete if current_user.id == @appointment.user_id or @page.can_edit?(current_user)
 
-    @schedule = @page.get_shorter_schedule
+    @schedule = @page.get_shorter_appts
   end
 
   def update

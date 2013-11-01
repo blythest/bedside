@@ -60,4 +60,16 @@ class Page < ActiveRecord::Base
     days
   end
 
+  def get_shorter_appts
+    today = 
+    appointments = self.appointments.where('start_time < ? AND start_time > ?', Time.now + 6.days, Time.now.beginning_of_day)
+    days = self.next_week
+
+    appointments.each do |v|
+      daystring = v.start_time.strftime('%Y%m%d')
+      days[daystring][:appointments] << v
+    end
+    days
+  end
+
 end

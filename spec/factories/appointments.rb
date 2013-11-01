@@ -2,6 +2,5 @@
 
 FactoryGirl.define do
   factory :appointment do
-      "MyString"
   end
 end

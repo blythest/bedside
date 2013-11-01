@@ -1,2 +1,9 @@
-%h1 Appointments#show
-%p Find me in app/views/appointments/show.html.haml
+%p#notice= notice
+
+%p
+  %b  :
+  = @appointment. 
+
+= link_to 'Edit', edit_appointment_path(@appointment)
+\|
+= link_to 'Back', appointments_path

@@ -1,0 +1,19 @@
+%h1 Listing appointments
+
+%table
+  %tr
+    %th  
+    %th
+    %th
+    %th
+
+  - @appointments.each do |appointment|
+    %tr
+      %td= appointment. 
+      %td= link_to 'Show', appointment
+      %td= link_to 'Edit', edit_appointment_path(appointment)
+      %td= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Appointment', new_appointment_path

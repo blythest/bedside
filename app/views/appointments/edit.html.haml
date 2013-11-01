@@ -1,2 +1,7 @@
-%h1 Visits#edit
-%p Find me in app/views/appointments/edit.html.haml
+%h1 Editing appointment
+
+= render 'form'
+
+= link_to 'Show', @appointment
+\|
+= link_to 'Back', appointments_path
